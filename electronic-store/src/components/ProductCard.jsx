@@ -7,15 +7,21 @@ function ProductCard({ product }) {
 
   return (
     <div className="product-card">
+      {/* Link-ში არის მხოლოდ სურათი და სახელი */}
       <Link to={`/products/${product.id}`}>
-        <img 
-          src={product.image} 
-          alt={product.title} // .title და არა .name
-          className="product-image" 
-        />
-        <h3 className="product-name">{product.title}</h3> {/* .title და არა .name */}
+        <div className="product-image-wrapper">
+          <img 
+            src={product.image} 
+            alt={product.title}
+            className="product-image" 
+          />
+        </div>
+        <h3 className="product-name">{product.title}</h3>
       </Link>
+      
+      {/* ფასი და ღილაკი არის Link-ის გარეთ */}
       <p className="product-price">{product.price.toFixed(2)} ₾</p>
+      
       <button 
         className="btn"
         onClick={() => addToCart(product)}
