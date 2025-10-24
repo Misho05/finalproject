@@ -3,6 +3,7 @@
 /* ================================== */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
+
 /* ================================== */
 /* 1. Navbar - "ლამაზი" ჰედერი      */
 /* ================================== */
@@ -53,6 +54,8 @@
   gap: 15px; 
 }
 
+/* ===> ეს არის მთავარი სტილი ჰედერისთვის <=== */
+/* ის ვრცელდება "პროდუქტები", "შესვლა" და "კალათა" ლინკებზე */
 .nav-link {
   text-decoration: none;
   color: #333;
@@ -61,10 +64,14 @@
   padding: 8px 16px; 
   border-radius: 6px;
   transition: background-color 0.2s ease, color 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px; 
+  
+  display: flex;         /* <-- ეს ასწორებს ხატულას და ტექსტს */
+  align-items: center;   /* <-- ეს ასწორებს ხატულას და ტექსტს */
+  gap: 8px;              /* <-- ეს ქმნის დაშორებას */
+  white-space: nowrap; 
 }
+
+/* "პროდუქტები" და "შესვლა" ლინკების hover/active */
 .nav-link:hover {
   background-color: #f4f7f6; 
   color: #007bff;
@@ -82,34 +89,37 @@
   position: relative; 
   top: -1px; 
 }
+.nav-link.active svg {
+  color: #007bff;
+}
 
-/* "ლამაზი" კალათის ღილაკი */
+/* 2. სტილი კონკრეტულად კალათის ღილაკისთვის */
 .nav-cart-link {
-  background-color: #229c4b;
+  /* შეგიძლია აქ ფერი შეუცვალო, მაგ: background-color: #28a745; (მწვანე) */
+  background-color: #007bff; 
   color: #ffffff;
   border-radius: 8px; 
   padding: 10px 16px; 
-  gap: 10px;
-  width: 250px; 
 }
 .nav-cart-link:hover {
   background-color: #0056b3; 
   color: #ffffff;
   transform: translateY(-2px); 
-  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
 }
 .nav-cart-link.active {
    background-color: #004a99; 
    color: #ffffff;
 }
-.nav-cart-link.active svg {
-  color: #ffffff;
+.nav-cart-link.active svg,
+.nav-cart-link:hover svg,
+.nav-cart-link svg {
+  color: #ffffff; /* კალათის ხატულა ყოველთვის თეთრია */
 }
 
 /* კალათის რაოდენობის ციფრი */
 .nav-cart-link .cart-count {
   background-color: #ffffff;
-  color: #007bff;
+  color: #007bff; /* (ან #28a745 თუ მწვანეს იყენებ) */
   border-radius: 50%;
   padding: 0; 
   font-size: 12px;
@@ -120,19 +130,20 @@
   align-items: center;
   justify-content: center;
   line-height: 1; 
+  flex-shrink: 0; 
 }
 .nav-cart-link .cart-text {
-  flex-grow: 1;
+  flex-shrink: 0; 
 }
 
 /* ================================== */
-/* 2. პროდუქტების სია (მთავარი ფიქსი) */
+/* 2. პროდუქტების სია (GRID ფიქსი)   */
 /* ================================== */
 
 .product-list {
   display: grid;
   
-  /* ეს ასწორებს "ერთ რიგში ერთ ბარათს" */
+  /* ===> ეს არის მთავარი სტილი ბარათებისთვის <=== */
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   
   gap: 20px; 
@@ -162,7 +173,7 @@
   color: inherit;
   display: flex; 
   flex-direction: column;
-  flex-grow: 1; /* ეს აიძულებს ლინკს, დაიკავოს ცარიელი ადგილი */
+  flex-grow: 1; 
 }
 
 .product-image-wrapper {
@@ -188,7 +199,7 @@
   color: #343a40;
   margin-bottom: 10px;
   line-height: 1.4;
-  height: 45px; /* აფიქსირებს 2 ხაზის სიმაღლეს */
+  height: 45px; 
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -201,7 +212,7 @@
   font-weight: 700; 
   color: #007bff; 
   margin-bottom: 15px;
-  margin-top: auto; /* ეს აწებებს ფასს ღილაკის თავზე */
+  margin-top: auto; 
 }
 
 .product-card .btn {
@@ -214,7 +225,7 @@
   font-size: 16px;
   font-weight: 500;
   width: 100%; 
-  opacity: 1; /* ღილაკი ყოველთვის ჩანს */
+  opacity: 1; 
   transform: none;
   transition: background-color 0.2s ease;
 }
