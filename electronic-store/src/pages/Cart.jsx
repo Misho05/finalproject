@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 function Cart() {
   const { cartItems, removeFromCart, addToCart, decreaseQuantity, getCartTotal } = useCart();
 
+  // თუ კალათა ცარიელია
   if (cartItems.length === 0) {
     return (
       <div className="cart-page">
@@ -14,15 +15,20 @@ function Cart() {
     );
   }
 
+  // თუ კალათაში რამეა
   return (
     <div className="cart-page">
       <h2>თქვენი კალათა</h2>
       <div className="cart-items-list">
         {cartItems.map(item => (
           <div key={item.id} className="cart-item">
-            <img src={item.image} alt={item.name} className="cart-item-image" />
+            <img 
+              src={item.image} 
+              alt={item.title} // .title
+              className="cart-item-image" 
+            />
             <div className="cart-item-details">
-              <h3>{item.name}</h3>
+              <h3>{item.title}</h3> {/* .title */}
               <p>{item.price.toFixed(2)} ₾</p>
               <div className="cart-item-quantity">
                 <button onClick={() => decreaseQuantity(item.id)}>-</button>

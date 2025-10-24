@@ -8,8 +8,12 @@ function ProductCard({ product }) {
   return (
     <div className="product-card">
       <Link to={`/products/${product.id}`}>
-        <img src={product.image} alt={product.name} className="product-image" />
-        <h3 className="product-name">{product.name}</h3>
+        <img 
+          src={product.image} 
+          alt={product.title} // .title და არა .name
+          className="product-image" 
+        />
+        <h3 className="product-name">{product.title}</h3> {/* .title და არა .name */}
       </Link>
       <p className="product-price">{product.price.toFixed(2)} ₾</p>
       <button 
