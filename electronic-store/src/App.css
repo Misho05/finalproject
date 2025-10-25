@@ -435,3 +435,142 @@
     width: 100%;
   }
 }
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.auth-form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.auth-form .btn-primary {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
+  color: #555;
+}
+
+.auth-switch a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+
+.footer {
+  background-color: #2b3035; 
+  color: #f8f9fa;
+  padding: 30px 20px;
+  margin-top: 40px; 
+  border-top: 4px solid #007bff; 
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; 
+  gap: 20px;
+}
+
+.footer-content {
+  text-align: left;
+}
+
+.footer-brand {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif; 
+  display: block;
+  margin-bottom: 10px;
+  transition: color 0.2s ease;
+}
+
+.footer-brand:hover {
+  color: #007bff;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 15px;
+  color: #ced4da;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social a {
+  color: #f8f9fa;
+  font-size: 22px;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social a:hover {
+  color: #007bff; 
+  transform: translateY(-2px);
+}
+
+/* Footer Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; 
+    text-align: center;
+  }
+  .footer-content {
+    text-align: center;
+  }
+}
