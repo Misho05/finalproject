@@ -32,12 +32,26 @@ function Navbar() {
         </NavLink>
 
         <ul className="nav-links">
-         
+          
           <li>
             <NavLink to="/products" className={getDefaultLinkClass}>
               <span>პროდუქტები</span>
             </NavLink>
           </li>
+          
+          {/* --- დამატებულია --- */}
+          <li>
+            <NavLink to="/about" className={getDefaultLinkClass}>
+              <span>ჩვენს შესახებ</span>
+            </NavLink>
+          </li>
+          
+          <li>
+            <NavLink to="/contact" className={getDefaultLinkClass}>
+              <span>კონტაქტი</span>
+            </NavLink>
+          </li>
+          {/* --- დასასრული --- */}
           
           
           <li>
