@@ -1,5 +1,3 @@
-// src/pages/Products.jsx
-
 import React, { useState, useEffect } from 'react';
 import ProductCard from '../components/ProductCard.jsx';
 
@@ -13,8 +11,8 @@ function Products() {
       try {
         setLoading(true); 
         
-        const response = await fetch('https://fakestoreapi.com/products/category/electronics');
-        
+        const response = await fetch('https://fakestoreapi.com/products');
+        //('https://fakestoreapi.com/products/category/electronics')
         if (!response.ok) {
           throw new Error('მონაცემების ჩატვირთვა ვერ მოხერხდა');
         }
