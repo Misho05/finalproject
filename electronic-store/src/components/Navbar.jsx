@@ -1,11 +1,15 @@
+
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useProducts } from '../context/ProductContext'; 
 import { BsCartFill } from "react-icons/bs"; 
 import { FaUser } from "react-icons/fa6"; 
+import { FaSearch } from "react-icons/fa"; 
 
 function Navbar() {
   const { getItemCount } = useCart();
+  const { searchTerm, setSearchTerm } = useProducts();
 
   
   const getDefaultLinkClass = ({ isActive }) => {
@@ -31,6 +35,19 @@ function Navbar() {
           TechStore
         </NavLink>
 
+  
+        <div className="nav-search">
+          <FaSearch className="search-icon" />
+          <input 
+            type="text"
+            placeholder="პროდუქტის ძებნა..."
+            className="search-input"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+   
+
         <ul className="nav-links">
           
           <li>
@@ -39,7 +56,7 @@ function Navbar() {
             </NavLink>
           </li>
           
-          {/* --- დამატებულია --- */}
+          
           <li>
             <NavLink to="/about" className={getDefaultLinkClass}>
               <span>ჩვენს შესახებ</span>
@@ -51,7 +68,6 @@ function Navbar() {
               <span>კონტაქტი</span>
             </NavLink>
           </li>
-          {/* --- დასასრული --- */}
           
           
           <li>
