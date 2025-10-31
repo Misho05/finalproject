@@ -1,34 +1,37 @@
-// src/App.js
-
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React, { Suspense, lazy } from 'react'; // 1. დავაიმპორტოთ lazy და Suspense
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
-import Footer from './components/Footer.jsx';
-import Products from './pages/Products.jsx';
-import ProductDetail from './pages/ProductDetail.jsx';
-import Cart from './pages/Cart.jsx';
-import Login from './pages/Login.jsx';
-import Register from './pages/Register.jsx';
-import About from './pages/About.jsx';       
-import Contact from './pages/Contact.jsx';   
+
+// 2. დავა-lazy-ოთ ყველა გვერდი, Navbar-ის გარდა
+const Home = lazy(() => import('./pages/Home.jsx'));
+const Products = lazy(() => import('./pages/Products.jsx'));
+const ProductDetail = lazy(() => import('./pages/ProductDetail.jsx'));
+const Cart = lazy(() => import('./pages/Cart.jsx'));
+
+// (შექმენი მარტივი "Loading..." კომპონენტი ან გამოიყენე ტექსტი)
+const PageLoader = () => (
+  <div style={{ padding: '20px', textAlign: 'center' }}>
+    იტვირთება...
+  </div>
+);
 
 function App() {
   return (
     <div className="App">
       <Navbar />
       <div className="container">
-        <Routes>
-          <Route path="/" element={<Navigate to="/products" replace />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<ProductDetail />} /> 
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/about" element={<About />} />       
-          <Route path="/contact" element={<Contact />} />  
-        </Routes>
+        {/* 3. Routes-ს ვფუთავთ Suspense-ში */}
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<ProductDetail />} /> 
+            <Route path="/cart" element={<Cart />} />
+            {/* აქ შეგიძლია დაამატო /login რაუტიც */}
+            {/* <Route path="/login" element={<div>Login Page</div>} /> */}
+          </Routes>
+        </Suspense>
       </div>
-      <Footer />
     </div>
   );
 }
